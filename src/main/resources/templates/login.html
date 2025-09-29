@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login - Biblioteca</title>
+    <title>Painel do Cliente</title>
     <meta charset="UTF-8">
     <style>
         /* Estilo Dark minimalista */
@@ -16,12 +16,12 @@
             margin: 0;
         }
 
-        .login-container {
+        .panel-container {
             background-color: #1e1e1e;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0,0,0,0.6);
-            width: 350px;
+            width: 400px;
             text-align: center;
         }
 
@@ -42,32 +42,19 @@
             font-size: 36px;
         }
 
-        .login-container h2 {
+        .panel-container h2 {
             margin-bottom: 20px;
             color: #ffffff;
         }
 
-        .login-container input,
-        .login-container button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
+        .panel-container p {
+            margin-bottom: 30px;
+            color: #cfcfcf;
+        }
+
+        .panel-container button {
+            padding: 12px 24px;
             border-radius: 8px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-
-        .login-container input {
-            border: none;
-            background-color: #2c2c2c;
-            color: #fff;
-        }
-
-        .login-container input:focus {
-            outline: 2px solid #4cafef;
-        }
-
-        .login-container button {
             border: none;
             background-color: #4cafef;
             color: #fff;
@@ -76,32 +63,23 @@
             transition: background 0.3s;
         }
 
-        .login-container button:hover {
+        .panel-container button:hover {
             background-color: #3a9cd9;
-        }
-
-        .error-message {
-            color: #ff4c4c;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-<div class="login-container">
+<div class="panel-container">
     <div class="logo">
         <span class="text">Acervo</span><span class="plus">+</span>
     </div>
 
-    <h2>Faça seu Login</h2>
+    <h2>Bem-vindo, Cliente!</h2>
+    <p>Aqui você poderá consultar livros e solicitar empréstimos.</p>
 
-    <p th:if="${error}" th:text="${error}" class="error-message"></p>
-
-    <form th:action="@{/login}" method="post">
-        <input type="text" name="username" placeholder="Usuário*" required />
-        <input type="password" name="password" placeholder="Senha*" required />
-        <button type="submit">Entrar</button>
+    <form th:action="@{/login}" method="get">
+        <button type="submit">Sair</button>
     </form>
 </div>
 </body>
 </html>
-`
