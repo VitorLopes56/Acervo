@@ -59,3 +59,24 @@ A aplicação será dividida em dois perfis principais:
 
 ---
 
+## 🛠️ Configuração do IntelliJ IDEA (Project Structure)
+
+1. **Abrir Project Structure**
+    - `File > Project Structure` ou `Ctrl + Alt + Shift + S (Windows)` / `Cmd + ; (Mac)`
+
+2. **Configurar SDK**
+    - Em **Project Settings → Project → Project SDK**, selecione **Java 17**
+    - Se não existir, clique em **New → JDK** e selecione a pasta do JDK
+
+3. **Configurar Language Level**
+    - **Project Settings → Project → Project language level → 17**
+
+4. **Configurar Módulo**
+    - **Project Settings → Modules → Sources**: `src/main/java` → Sources
+    - **Test Sources**: `src/test/java` → Test Sources
+    - **Dependencies**: verificar que o módulo usa **Java 17**
+
+5. **Aplicar e salvar**
+    - Clique **Apply → OK**
+
+---
