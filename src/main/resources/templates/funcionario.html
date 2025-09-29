@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Funcionários - Biblioteca</title>
+    <link rel="stylesheet" href="tema.css"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="" alt="Logo Biblioteca"> <!-- Substitua com a logo da sua biblioteca -->
+    </div>
+    <div class="info-user">
+        <span>Bem-vindo</span>
+        <button onclick="window.location.href='login.html'">Sair</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="tabs">
+        <a href="#emprestimos">Empréstimo</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#estoque">Estoque de Livros</a>
+        <a href="#relatorios">Relatórios</a>
+    </div>
+
+    <!-- Aba do emprestimo -->
+    <div id="emprestimos" class="tab-content">
+        <h2>Empréstimos</h2>
+        <button class="button">Cadastrar Novo Empréstimo</button>
+        <div class="search">
+            <input type="text" placeholder="Pesquisar livro por título, autor ou código">
+        </div>
+        <h3>Lista de Empréstimos Ativos</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Título</th>
+                <th>Cliente</th>
+                <th>Data Empréstimo</th>
+                <th>Data Devolução</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>O Senhor dos Anéis</td>
+                <td>Maria Oliveira</td>
+                <td>01/10/2025</td>
+                <td>15/10/2025</td>
+                <td style="color: red;">Atrasado</td>
+            </tr>
+            <tr>
+                <td>Harry Potter</td>
+                <td>José Santos</td>
+                <td>05/10/2025</td>
+                <td>19/10/2025</td>
+                <td>Dentro do prazo</td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="button">Registrar Devolução</button>
+    </div>
+
+    <!-- Conteúdo das outras abas pode ser adicionado da mesma forma -->
+
+</div>
+
+<!-- Rodapé -->
+<footer>
+    <p>Contato: (XX) XXXX-XXXX | Email: contato@biblioteca.com | Endereço: Rua Exemplo, 123 - Centro | Horário: Seg a Sex, 8h - 18h</p>
+</footer>
+</body>
+</html>
