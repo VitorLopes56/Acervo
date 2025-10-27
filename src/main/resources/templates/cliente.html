@@ -1,22 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Painel do Cliente</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/tema.css">
+    <title>Painel do Cliente</title>
+    <link rel="stylesheet" th:href="@{/css/tema.css}">
 </head>
 <body>
-<div class="panel-container">
+<header>
     <div class="logo">
         <span class="text">Acervo</span><span class="plus">+</span>
     </div>
+    <div class="info-user">
+        <span>Bem-vindo, Cliente!</span>
+        <button type="button" onclick="window.location.href='/login'">Sair</button>
+    </div>
+</header>
 
-    <h2>Bem-vindo, Cliente!</h2>
+<div class="container">
+    <h2>Painel do Cliente</h2>
     <p>Aqui você poderá consultar livros e solicitar empréstimos.</p>
 
-    <form th:action="@{/login}" method="get">
-        <button type="submit">Sair</button>
-    </form>
+    <div class="search">
+        <input type="text" placeholder="Pesquisar livros por título, autor ou código">
+    </div>
+
+    <h3>Livros Disponíveis</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>O Senhor dos Anéis</td>
+            <td>J.R.R. Tolkien</td>
+            <td>Disponível</td>
+        </tr>
+        <tr>
+            <td>Harry Potter</td>
+            <td>J.K. Rowling</td>
+            <td>Emprestado</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<footer>
+    <p>Contato: (31) 1234-5678 | Email: contato@biblioteca.com | Endereço: Rua Exemplo, 123 - Centro | Horário: Seg a Sex, 8h - 18h</p>
+</footer>
 </body>
 </html>

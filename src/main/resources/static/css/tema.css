@@ -47,25 +47,25 @@ header {
   box-shadow: 0 4px 10px var(--shadow);
 }
 
+/* Logo destacada */
 header .logo {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: baseline;
+  gap: 8px; /* espaço entre texto e + */
 }
 
-header .logo img {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border-radius: 8px;
-  background: #2a2a2a;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-header .logo .title {
-  font-size: 18px;
-  font-weight: 700;
+header .logo .text {
+  font-size: 48px;       /* tamanho grande */
+  font-weight: 900;
   color: var(--text);
+  letter-spacing: 1px;
+}
+
+header .logo .plus {
+  font-size: 52px;       /* maior que o texto */
+  font-weight: 900;
+  color: var(--accent);  /* azul do tema */
+  margin-left: 4px;
 }
 
 header .info-user {
@@ -103,6 +103,7 @@ header .info-user button:hover {
   padding: 22px;
   border-radius: 12px;
   box-shadow: 0 8px 20px var(--shadow);
+  color: var(--text);
 }
 
 /* Tabs */
@@ -236,7 +237,6 @@ body.login-page {
     align-items: center;
     height: 100vh;
 
-    /* Fundo com caminho relativo */
     background-image: url('/imagens/Imagem_Login.png');
     background-size: cover;
     background-position: center;
@@ -244,7 +244,6 @@ body.login-page {
     position: relative;
 }
 
-/* Camada escura sobre a imagem */
 body.login-page::before {
     content: "";
     position: absolute;
@@ -256,7 +255,6 @@ body.login-page::before {
     z-index: 0;
 }
 
-/* Caixa de login acima do fundo */
 .login-wrapper {
     position: relative;
     z-index: 1;
@@ -282,7 +280,6 @@ body.login-page::before {
   box-shadow: 0 10px 30px var(--shadow);
 }
 
-/* Logo */
 .login-card .logo {
   display: flex;
   justify-content: center;
@@ -303,7 +300,6 @@ body.login-page::before {
   margin-left: 6px;
 }
 
-/* Título */
 .login-card h2 {
   font-weight: 600;
   font-size: 20px;
@@ -311,7 +307,6 @@ body.login-page::before {
   color: var(--text);
 }
 
-/* Mensagem de erro */
 .error-message {
   background-color: rgba(255, 107, 107, 0.1);
   color: var(--danger);
@@ -321,7 +316,6 @@ body.login-page::before {
   margin-bottom: 16px;
 }
 
-/* Inputs */
 .input-group {
   margin-bottom: 16px;
 }
@@ -344,7 +338,6 @@ input:focus {
   background-color: rgba(255,255,255,0.08);
 }
 
-/* Botão de login */
 .btn-login {
   width: 100%;
   padding: 12px;
@@ -363,7 +356,6 @@ input:focus {
   transform: translateY(-1px);
 }
 
-/* Texto inferior */
 .footer-text {
   margin-top: 24px;
   color: var(--muted);
@@ -372,6 +364,14 @@ input:focus {
 
 /* Responsivo */
 @media (max-width: 480px) {
+  header .logo .text {
+    font-size: 36px;
+  }
+
+  header .logo .plus {
+    font-size: 38px;
+  }
+
   .login-card {
     padding: 32px 28px;
   }
