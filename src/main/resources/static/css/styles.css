@@ -1,0 +1,165 @@
+/* Reset e Configurações Globais */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #a050f0;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: #1f1f1f;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #333;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 1rem;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+/* Tabelas */
+.table-styled {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+}
+
+.table-styled th, .table-styled td {
+    border: 1px solid #333;
+    padding: 0.75rem 1rem;
+}
+
+.table-styled thead {
+    background-color: #2a2a2a;
+}
+
+/* Formulários */
+.form-styled {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Botões */
+.btn-primary, .btn-secondary, .btn-action {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #6200ee;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #3700b3;
+}
+
+.btn-secondary {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Página de Login */
+.login-container {
+    max-width: 400px;
+    margin: 4rem auto;
+}
+
+.error-message {
+    background-color: #cf6679;
+    color: #121212;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    color: #888;
+}

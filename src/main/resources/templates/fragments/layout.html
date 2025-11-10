@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html th:fragment="layout(title, content)" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Acervo+</title>
+    <link rel="stylesheet" th:href="@{/css/tema.css}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a th:href="@{/}" style="text-decoration: none;">
+            <span class="text">Acervo</span><span class="plus">+</span>
+        </a>
+    </div>
+    <div class="info-user" sec:authorize="isAuthenticated()">
+        <span>Bem-vindo, <span sec:authentication="name"></span>!</span>
+        <button onclick="window.location.href='/logout'">Sair</button>
+    </div>
+</header>
+
+<div class="container" th:replace="${content}">
+    <!-- O conteúdo da página específica será inserido aqui -->
+</div>
+
+<footer>
+    <p>Contato: (31) 1234-5678 | Email: contato@biblioteca.com | Endereço: Rua Exemplo, 123 - Centro | Horário: Seg a Sex, 8h - 18h</p>
+</footer>
+</body>
+</html>

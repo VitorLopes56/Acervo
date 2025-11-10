@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(title=~{::title}, content=~{::.container})}">
+<head>
+    <title>Painel do Cliente</title>
+</head>
+<body>
+<div class="container">
+    <h2>Painel do Cliente</h2>
+    <p>Aqui você poderá consultar livros e solicitar empréstimos.</p>
+
+    <div class="search">
+        <form th:action="@{/cliente/livros}" method="get">
+            <input type="text" name="q" placeholder="Pesquisar livros por título, autor ou código" th:value="${param.q}"/>
+        </form>
+    </div>
+
+    <h3>Livros Disponíveis</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="livro : ${livros}">
+            <td th:text="${livro.titulo}">O Senhor dos Anéis</td>
+            <td th:text="${livro.autor}">J.R.R. Tolkien</td>
+            <td>
+                <span th:if="${livro.quantidade > 0}">Disponível</span>
+                <span th:if="${livro.quantidade == 0}" style="color: red;">Emprestado</span>
+            </td>
+            <td>
+                <a th:if="${livro.quantidade > 0}" th:href="@{/cliente/emprestar/{livroId}(livroId=${livro.livroId})}" class="button">Emprestar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

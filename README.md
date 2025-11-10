@@ -59,3 +59,13 @@ A aplicação será dividida em dois perfis principais:
 
 ---
 
+Default users (created by Liquibase):
+- admin / (senha: admin123) role FUNCIONARIO
+- cliente / (senha: admin123) role CLIENTE
+
+---
+
+## Requisições do Swagger 
+http://localhost:8080/swagger-ui/index.html#/Funcion%C3%A1rio/salvarLivro
+
+--

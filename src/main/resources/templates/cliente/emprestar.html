@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(title=~{::title}, content=~{::main})}">
+<head>
+    <title>Confirmar Empréstimo</title>
+</head>
+<body>
+<main>
+    <section class="page-header">
+        <h2>Confirmar Solicitação de Empréstimo</h2>
+    </section>
+
+    <form th:action="@{/cliente/emprestar}" th:object="${emprestimo}" method="post" class="form-styled">
+        <input type="hidden" th:field="*{livroId}" />
+        <p>Você está prestes a solicitar o empréstimo do livro de ID: <strong th:text="*{livroId}"></strong>.</p>
+        <p>Confirma a operação?</p>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Confirmar</button>
+            <a th:href="@{/cliente/livros}" class="btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>
