@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(title=~{::title}, content=~{::.container})}">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Acervo+</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-<div class="container">
-    <div style="max-width: 400px; margin: 4rem auto;">
-        <h2>Acesse sua Conta</h2>
-        <form th:action="@{/login}" method="post" style="margin-top: 20px;">
-            <div th:if="${param.error}" style="color: red; margin-bottom: 15px;">
-                Credenciais inválidas.
+
+<body class="login-page">
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <!-- REMOVIDO: imagem dentro do card -->
+
+        <div class="logo">
+            <span class="text">Acervo</span><span class="plus">+</span>
+        </div>
+
+        <h2>Faça login na sua conta</h2>
+
+        <form th:action="@{/login}" method="post">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Usuário" required>
             </div>
-            <div th:if="${param.logout}" style="color: green; margin-bottom: 15px;">
-                Você saiu com sucesso.
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Senha" required>
             </div>
-            <div style="margin-bottom: 15px;">
-                <label for="username" style="display: block; margin-bottom: 5px;">Usuário:</label>
-                <input type="text" id="username" name="username" required autofocus style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label for="password" style="display: block; margin-bottom: 5px;">Senha:</label>
-                <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <button type="submit" class="button" style="width: 100%;">Entrar</button>
+
+            <button type="submit" class="btn-login">Entrar</button>
         </form>
+
+        <p class="footer-text">© 2025 Acervo+</p>
     </div>
 </div>
 </body>
