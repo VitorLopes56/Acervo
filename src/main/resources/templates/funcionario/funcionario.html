@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Funcionário - Biblioteca</title>
+    <link rel="stylesheet" href="/css/funcionarios.css">
+</head>
+
+<body class="painel-funcionario">
+
+<header class="topbar">
+    <div class="logo-area">
+        <span class="logo-text">Acervo</span><span class="logo-plus">+</span>
+    </div>
+
+    <div class="user-area">
+        <span th:text="${funcionario.nome}">Funcionário</span>
+        <form th:action="@{/logout}" method="post">
+            <button class="logout-btn">Sair</button>
+        </form>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Abas -->
+    <nav class="tabs">
+        <button class="tab active" data-tab="emprestimo">Empréstimo</button>
+        <button class="tab" data-tab="clientes">Clientes</button>
+        <button class="tab" data-tab="estoque">Estoque de Livros</button>
+        <button class="tab" data-tab="relatorios">Relatórios</button>
+    </nav>
+
+    <!-- Conteúdos das Abas -->
+    <section class="tab-content active" id="emprestimo">
+        <h2>Gerenciar Empréstimos</h2>
+
+        <div class="card">
+            <h3>Pesquisar Livro</h3>
+            <input type="text" placeholder="Título, autor ou código">
+            <button class="btn">Buscar</button>
+        </div>
+
+        <div class="card">
+            <h3>Empréstimos Ativos</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Cliente</th>
+                    <th>Devolução</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>Dom Casmurro</td>
+                    <td>Maria Silva</td>
+                    <td>10/03/2025</td>
+                    <td><span class="status ok">No prazo</span></td>
+                    <td><button class="btn-small">Registrar Devolução</button></td>
+                </tr>
+
+                <tr>
+                    <td>O Hobbit</td>
+                    <td>João Souza</td>
+                    <td>02/03/2025</td>
+                    <td><span class="status late">Atrasado</span></td>
+                    <td><button class="btn-small">Registrar Devolução</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="clientes">
+        <h2>Clientes</h2>
+
+        <div class="card">
+            <h3>Buscar Cliente</h3>
+            <input type="text" placeholder="Nome, CPF ou matrícula">
+            <button class="btn">Buscar</button>
+        </div>
+
+        <div class="card">
+            <h3>Lista de Clientes</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>Ana Lima</td>
+                    <td>123.456.789-00</td>
+                    <td>(11) 99887-5544</td>
+                    <td><button class="btn-small">Editar</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="estoque">
+        <h2>Estoque de Livros</h2>
+
+        <div class="card">
+            <h3>Filtros</h3>
+            <input type="text" placeholder="Título ou autor">
+            <button class="btn">Filtrar</button>
+        </div>
+
+        <div class="card">
+            <h3>Lista de Livros</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1984</td>
+                    <td>George Orwell</td>
+                    <td>Ficção</td>
+                    <td><span class="status ok">Disponível</span></td>
+                    <td><button class="btn-small">Editar</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="relatorios">
+        <h2>Relatórios</h2>
+
+        <div class="card">
+            <h3>Gerar Relatórios</h3>
+            <button class="btn">Empréstimos por período</button>
+            <button class="btn">Livros mais emprestados</button>
+            <button class="btn">Clientes ativos</button>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>Biblioteca Municipal – Rua Central, 123 – Atendimento: 08h às 18h</p>
+</footer>
+
+<script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            contents.forEach(c => c.classList.remove("active"));
+            document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+    });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Funcionário - Biblioteca</title>
+    <link rel="stylesheet" href="/css/funcionario.css">
+</head>
+
+<body class="painel-funcionario">
+
+<header class="topbar">
+    <div class="logo-area">
+        <span class="logo-text">Acervo</span><span class="logo-plus">+</span>
+    </div>
+
+    <div class="user-area">
+        <span th:text="${funcionario.nome}">Funcionário</span>
+        <form th:action="@{/logout}" method="post">
+            <button class="logout-btn">Sair</button>
+        </form>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Abas -->
+    <nav class="tabs">
+        <button class="tab active" data-tab="emprestimo">Empréstimo</button>
+        <button class="tab" data-tab="clientes">Clientes</button>
+        <button class="tab" data-tab="estoque">Estoque de Livros</button>
+        <button class="tab" data-tab="relatorios">Relatórios</button>
+    </nav>
+
+    <!-- Conteúdos das Abas -->
+    <section class="tab-content active" id="emprestimo">
+        <h2>Gerenciar Empréstimos</h2>
+
+        <div class="card">
+            <h3>Pesquisar Livro</h3>
+            <input type="text" placeholder="Título, autor ou código">
+            <button class="btn">Buscar</button>
+        </div>
+
+        <div class="card">
+            <h3>Empréstimos Ativos</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Cliente</th>
+                    <th>Devolução</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>Dom Casmurro</td>
+                    <td>Maria Silva</td>
+                    <td>10/03/2025</td>
+                    <td><span class="status ok">No prazo</span></td>
+                    <td><button class="btn-small">Registrar Devolução</button></td>
+                </tr>
+
+                <tr>
+                    <td>O Hobbit</td>
+                    <td>João Souza</td>
+                    <td>02/03/2025</td>
+                    <td><span class="status late">Atrasado</span></td>
+                    <td><button class="btn-small">Registrar Devolução</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="clientes">
+        <h2>Clientes</h2>
+
+        <div class="card">
+            <h3>Buscar Cliente</h3>
+            <input type="text" placeholder="Nome, CPF ou matrícula">
+            <button class="btn">Buscar</button>
+        </div>
+
+        <div class="card">
+            <h3>Lista de Clientes</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>Ana Lima</td>
+                    <td>123.456.789-00</td>
+                    <td>(11) 99887-5544</td>
+                    <td><button class="btn-small">Editar</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="estoque">
+        <h2>Estoque de Livros</h2>
+
+        <div class="card">
+            <h3>Filtros</h3>
+            <input type="text" placeholder="Título ou autor">
+            <button class="btn">Filtrar</button>
+        </div>
+
+        <div class="card">
+            <h3>Lista de Livros</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1984</td>
+                    <td>George Orwell</td>
+                    <td>Ficção</td>
+                    <td><span class="status ok">Disponível</span></td>
+                    <td><button class="btn-small">Editar</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tab-content" id="relatorios">
+        <h2>Relatórios</h2>
+
+        <div class="card">
+            <h3>Gerar Relatórios</h3>
+            <button class="btn">Empréstimos por período</button>
+            <button class="btn">Livros mais emprestados</button>
+            <button class="btn">Clientes ativos</button>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>Biblioteca Municipal – Rua Central, 123 – Atendimento: 08h às 18h</p>
+</footer>
+
+<script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            contents.forEach(c => c.classList.remove("active"));
+            document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+    });
+</script>
+
+</body>
+</html>
