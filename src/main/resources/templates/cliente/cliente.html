@@ -1,43 +1,121 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(title=~{::title}, content=~{::.container})}">
+<html xmlns:th="http://www.thyme.org"
+      th:replace="~{fragments/layout :: layout(title=~{::title}, content=~{::.container})}">
 <head>
     <title>Painel do Cliente</title>
-</head>
-<body>
-<div class="container">
-    <h2>Painel do Cliente</h2>
-    <p>Aqui você poderá consultar livros e solicitar empréstimos.</p>
+    <link rel="stylesheet" href="/css/cliente.css">
 
-    <div class="search">
-        <form th:action="@{/cliente/livros}" method="get">
-            <input type="text" name="q" placeholder="Pesquisar livros por título, autor ou código" th:value="${param.q}"/>
-        </form>
+    <script>
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-buttons button').forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            document.getElementById("btn-" + tabName).classList.add('active');
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Painel do Cliente</h2>
+    <p>Aqui você poderá consultar seus empréstimos e solicitar novos.</p>
+
+    <!-- ====================== ABAS ====================== -->
+    <div class="tabs">
+
+        <!-- Botões das abas -->
+        <div class="tab-buttons">
+            <button id="btn-meus" class="active" onclick="openTab('meus')">Meus Empréstimos</button>
+            <button id="btn-buscar" onclick="openTab('buscar')">Buscar Livros</button>
+        </div>
+
+        <!-- ========== ABA 1: MEUS EMPRÉSTIMOS ========== -->
+        <div id="meus" class="tab-content active">
+
+            <h3>Meus Empréstimos</h3>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Data Empréstimo</th>
+                    <th>Data Devolução</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="emp : ${emprestimos}">
+                    <td th:text="${emp.livro.titulo}">Título do Livro</td>
+                    <td th:text="${emp.dataEmprestimo}">2025-01-01</td>
+                    <td th:text="${emp.dataDevolucaoEsperada}">2025-01-10</td>
+
+                    <td>
+                        <span th:if="${emp.status == 'EM_DIA'}" class="status status-ok">Em dia</span>
+                        <span th:if="${emp.status == 'ATRASADO'}" class="status status-late">Atrasado</span>
+                        <span th:if="${emp.status == 'RECUSADO'}" class="status status-refused">Recusado</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- ========== ABA 2: BUSCAR LIVROS ========== -->
+        <div id="buscar" class="tab-content">
+
+            <h3>Buscar Livros</h3>
+
+            <!-- Busca -->
+            <div class="search">
+                <form th:action="@{/cliente/livros}" method="get">
+                    <input type="text" name="q" placeholder="Pesquisar livros por título, autor ou código"
+                           th:value="${param.q}"/>
+                </form>
+            </div>
+
+            <!-- Tabela de livros -->
+            <table>
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="livro : ${livros}">
+                    <td th:text="${livro.titulo}">O Senhor dos Anéis</td>
+                    <td th:text="${livro.autor}">J.R.R. Tolkien</td>
+
+                    <td>
+                        <span th:if="${livro.quantidade > 0}" class="disponivel">Disponível</span>
+                        <span th:if="${livro.quantidade == 0}" class="indisponivel">Emprestado</span>
+                    </td>
+
+                    <td>
+                        <!-- Botão enviando para emprestimo.html -->
+                        <a th:if="${livro.quantidade > 0}"
+                           th:href="@{/emprestimo(livroId=${livro.livroId})}"
+                           class="button">
+                            Solicitar Empréstimo
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
     </div>
 
-    <h3>Livros Disponíveis</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Status</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="livro : ${livros}">
-            <td th:text="${livro.titulo}">O Senhor dos Anéis</td>
-            <td th:text="${livro.autor}">J.R.R. Tolkien</td>
-            <td>
-                <span th:if="${livro.quantidade > 0}">Disponível</span>
-                <span th:if="${livro.quantidade == 0}" style="color: red;">Emprestado</span>
-            </td>
-            <td>
-                <a th:if="${livro.quantidade > 0}" th:href="@{/cliente/emprestar/{livroId}(livroId=${livro.livroId})}" class="button">Emprestar</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
+
 </body>
 </html>
