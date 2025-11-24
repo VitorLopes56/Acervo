@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livro</title>
+    <link rel="stylesheet" href="css/cadastro_livro.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="#" class="voltar">← Voltar</a>
+        <h2 class="m-0">
+            <span class="titulo-branco">Cadastro de</span>
+            <span class="titulo-azul">Livro</span>
+        </h2>
+
+        <section class="card">
+            <h2 class="info">Informações básicas</h2>
+
+            <div class="grid-2">
+                <div class="campo">
+                    <label>Título do Livro</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Autor(es)</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Editora</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Ano de Publicação</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>ISBN</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Idioma</label>
+                    <select>
+                        <option>Português</option>
+                        <option>Inglês</option>
+                        <option>Espanhol</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Nº de Páginas</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Categoria / Gênero literário</label>
+                    <input type="text">
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="titulo-branco">Detalhes do Livro</h2>
+
+            <div class="campo">
+                <label>Resumo / Sinopse</label>
+                <textarea rows="4"></textarea>
+            </div>
+
+            
+        </section>
+
+        <section class="card">
+            <h2 class="estoque">Estoque e Localização</h2>
+
+            <div class="grid-2">
+                <div class="campo">
+                    <label>Quantidade no acervo</label>
+                    <input type="number" min="0">
+                </div>
+
+                <div class="campo">
+                    <label>Localização (Prateleira)</label>
+                    <input type="text">
+                </div>
+
+                <div class="campo">
+                    <label>Situação</label>
+                    <select>
+                        <option>Disponível</option>
+                        <option>Emprestado</option>
+                        <option>Em manutenção</option>
+                        <option>Perdido</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Data de entrada</label>
+                    <input type="date">
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="titulo-branco">Capa</h2>
+
+            <div class="upload-area">
+                <p class="titulo-branco">Arraste a imagem aqui</p>
+                <button>Upload da imagem</button>
+            </div>
+        </section>
+
+        <div class="acoes">
+            <button class="btn-cancelar"
+                    onclick="window.location.href='funcionario.html'">
+                Cancelar
+            </button>
+            <button class="btn-salvar">Salvar Livro</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
