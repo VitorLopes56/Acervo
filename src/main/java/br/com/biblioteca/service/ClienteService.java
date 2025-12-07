@@ -4,20 +4,26 @@ import br.com.biblioteca.model.Cliente;
 import br.com.biblioteca.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClienteService {
-    private final ClienteRepository repo;
-    public ClienteService(ClienteRepository repo) { this.repo = repo; }
 
-    public Cliente salvar(Cliente c) {
-        if (c.getDataCadastro() == null) c.setDataCadastro(LocalDateTime.now());
-        return repo.save(c);
+    private final ClienteRepository repo;
+
+    public ClienteService(ClienteRepository repo) {
+        this.repo = repo;
     }
-    public List<Cliente> listar() { return repo.findAll(); }
-    public Optional<Cliente> porId(Long id) { return repo.findById(id); }
-    public void excluir(Long id) { repo.deleteById(id); }
+
+    public List<Cliente> listarTodos() {
+        return repo.findAll();
+    }
+
+    public Cliente salvar(Cliente cliente) {
+        return repo.save(cliente);
+    }
+
+    public List<Cliente> searchByNomeOrCpf(String query) {
+        return repo.searchByNomeOrCpf(query);
+    }
 }

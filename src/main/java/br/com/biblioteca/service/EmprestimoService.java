@@ -65,4 +65,8 @@ public class EmprestimoService {
     public Optional<Emprestimo> porId(Long id) {
         return emprestimoRepo.findById(id);
     }
+
+    public List<Emprestimo> findByClienteId(Long clienteId) {
+        return emprestimoRepo.findByClienteId(clienteId);
+    }
 }

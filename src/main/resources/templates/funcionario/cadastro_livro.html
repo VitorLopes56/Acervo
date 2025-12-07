@@ -4,128 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livro</title>
-    <link rel="stylesheet" href="css/cadastro_livro.css">
+    <link rel="stylesheet" href="/css/cadastro_livro.css">
 </head>
 <body>
 
     <div class="container">
 
-        <a href="#" class="voltar">← Voltar</a>
+        <a href="/funcionario/funcionario.html" class="voltar">← Voltar</a>
         <h2 class="m-0">
             <span class="titulo-branco">Cadastro de</span>
             <span class="titulo-azul">Livro</span>
         </h2>
 
-        <section class="card">
-            <h2 class="info">Informações básicas</h2>
+        <form id="cadastroLivroForm">
+            <section class="card">
+                <h2 class="info">Informações básicas</h2>
 
-            <div class="grid-2">
-                <div class="campo">
-                    <label>Título do Livro</label>
-                    <input type="text">
+                <div class="grid-2">
+                    <div class="campo">
+                        <label for="titulo">Título do Livro</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="autor">Autor(es)</label>
+                        <input type="text" id="autor" name="autor" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="editora">Editora</label>
+                        <input type="text" id="editora" name="editora">
+                    </div>
+
+                    <div class="campo">
+                        <label for="anoPublicacao">Ano de Publicação</label>
+                        <input type="number" id="anoPublicacao" name="anoPublicacao">
+                    </div>
+
+                    <div class="campo">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="isbn" name="isbn">
+                    </div>
+
+                    <div class="campo">
+                        <label for="idioma">Idioma</label>
+                        <select id="idioma" name="idioma">
+                            <option>Português</option>
+                            <option>Inglês</option>
+                            <option>Espanhol</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="paginas">Nº de Páginas</label>
+                        <input type="number" id="paginas" name="paginas">
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoria">Categoria / Gênero literário</label>
+                        <input type="text" id="categoria" name="categoria" required>
+                    </div>
                 </div>
+            </section>
+
+            <section class="card">
+                <h2 class="titulo-branco">Detalhes do Livro</h2>
 
                 <div class="campo">
-                    <label>Autor(es)</label>
-                    <input type="text">
+                    <label for="resumo">Resumo / Sinopse</label>
+                    <textarea id="resumo" name="resumo" rows="4"></textarea>
                 </div>
+            </section>
 
-                <div class="campo">
-                    <label>Editora</label>
-                    <input type="text">
-                </div>
+            <section class="card">
+                <h2 class="estoque">Estoque e Localização</h2>
 
-                <div class="campo">
-                    <label>Ano de Publicação</label>
-                    <input type="text">
-                </div>
+                <div class="grid-2">
+                    <div class="campo">
+                        <label for="quantidade">Quantidade no acervo</label>
+                        <input type="number" id="quantidade" name="quantidade" min="0" required>
+                    </div>
 
-                <div class="campo">
-                    <label>ISBN</label>
-                    <input type="text">
-                </div>
+                    <div class="campo">
+                        <label for="localizacao">Localização (Prateleira)</label>
+                        <input type="text" id="localizacao" name="localizacao">
+                    </div>
 
-                <div class="campo">
-                    <label>Idioma</label>
-                    <select>
-                        <option>Português</option>
-                        <option>Inglês</option>
-                        <option>Espanhol</option>
-                    </select>
-                </div>
+                    <div class="campo">
+                        <label for="disponivel">Situação</label>
+                        <select id="disponivel" name="disponivel">
+                            <option value="true">Disponível</option>
+                            <option value="false">Indisponível</option>
+                        </select>
+                    </div>
 
-                <div class="campo">
-                    <label>Nº de Páginas</label>
-                    <input type="text">
+                    <div class="campo">
+                        <label for="dataEntrada">Data de entrada</label>
+                        <input type="date" id="dataEntrada" name="dataEntrada">
+                    </div>
                 </div>
+            </section>
 
-                <div class="campo">
-                    <label>Categoria / Gênero literário</label>
-                    <input type="text">
-                </div>
+            <div id="message" class="message-area"></div>
+
+            <div class="acoes">
+                <button type="button" class="btn-cancelar"
+                        onclick="window.location.href='/funcionario/funcionario.html'">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-salvar">Salvar Livro</button>
             </div>
-        </section>
-
-        <section class="card">
-            <h2 class="titulo-branco">Detalhes do Livro</h2>
-
-            <div class="campo">
-                <label>Resumo / Sinopse</label>
-                <textarea rows="4"></textarea>
-            </div>
-
-            
-        </section>
-
-        <section class="card">
-            <h2 class="estoque">Estoque e Localização</h2>
-
-            <div class="grid-2">
-                <div class="campo">
-                    <label>Quantidade no acervo</label>
-                    <input type="number" min="0">
-                </div>
-
-                <div class="campo">
-                    <label>Localização (Prateleira)</label>
-                    <input type="text">
-                </div>
-
-                <div class="campo">
-                    <label>Situação</label>
-                    <select>
-                        <option>Disponível</option>
-                        <option>Emprestado</option>
-                        <option>Em manutenção</option>
-                        <option>Perdido</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label>Data de entrada</label>
-                    <input type="date">
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2 class="titulo-branco">Capa</h2>
-
-            <div class="upload-area">
-                <p class="titulo-branco">Arraste a imagem aqui</p>
-                <button>Upload da imagem</button>
-            </div>
-        </section>
-
-        <div class="acoes">
-            <button class="btn-cancelar"
-                    onclick="window.location.href='funcionario.html'">
-                Cancelar
-            </button>
-            <button class="btn-salvar">Salvar Livro</button>
-        </div>
-
+        </form>
     </div>
 
+    <script src="/js/cadastro_livro.js"></script>
 </body>
 </html>

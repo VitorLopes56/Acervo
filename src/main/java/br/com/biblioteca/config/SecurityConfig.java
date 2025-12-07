@@ -7,7 +7,8 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -15,14 +16,18 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final UsuarioService usuarioService;
+    private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
-    public SecurityConfig(UsuarioService usuarioService) {
+    public SecurityConfig(UsuarioService usuarioService, CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler) {
         this.usuarioService = usuarioService;
+        this.customAuthenticationSuccessHandler = customAuthenticationSuccessHandler;
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        // ATENÇÃO: O NoOpPasswordEncoder é inseguro e não deve ser usado em produção.
+        // Ele trata as senhas como texto puro.
+        return NoOpPasswordEncoder.getInstance();
     }
 
     @Bean
@@ -47,7 +52,7 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                     .loginPage("/login")
-                    .defaultSuccessUrl("/")
+                    .successHandler(customAuthenticationSuccessHandler) // Usa o handler customizado
                     .permitAll()
             )
             .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll())
