@@ -142,14 +142,34 @@ th, td {
     padding: 10px;
 }
 
-/* STATUS */
-.status.ok {
-    color: #4caf50;
+/* --- STATUS PADRONIZADOS --- */
+
+/* Empréstimos */
+.status-ativo {
+    color: #1a73e8; /* azul */
     font-weight: bold;
 }
 
-.status.late {
-    color: #e53935;
+.status-atrasado {
+    color: #e53935; /* vermelho */
+    font-weight: bold;
+}
+
+.status-devolvido {
+    color: #4caf50; /* verde */
+    font-weight: bold;
+}
+
+/* Estoque */
+.status-disponivel,
+.status-ok {
+    color: #4caf50; /* verde */
+    font-weight: bold;
+}
+
+.status-indisponivel,
+.status-late {
+    color: #e53935; /* vermelho */
     font-weight: bold;
 }
 
