@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Empréstimo</title>
+    <link rel="stylesheet" href="/css/emprestimo.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Solicitar Empréstimo</h2>
+    <p>Confirme as informações do livro e finalize sua solicitação.</p>
+
+    <!-- Card do Livro -->
+    <div class="livro-card">
+
+        <h3 th:text="${livro.titulo}">Título do Livro</h3>
+
+        <p><strong>Autor:</strong>
+            <span th:text="${livro.autor}">Autor Exemplo</span>
+        </p>
+
+        <p><strong>Descrição:</strong></p>
+        <p th:text="${livro.descricao}">Descrição do livro...</p>
+
+        <p><strong>Quantidade Disponível:</strong>
+            <span th:text="${livro.quantidade}">0</span>
+        </p>
+
+    </div>
+
+    <!-- Formulário de solicitação -->
+    <form th:action="@{/cliente/solicitar-emprestimo}" method="post">
+
+        <!-- Envia o ID do livro -->
+        <input type="hidden" name="livroId" th:value="${livro.livroId}"/>
+
+        <div class="form-group">
+            <label for="observacoes">Observações (opcional):</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Escreva algo para o funcionário..."></textarea>
+        </div>
+
+        <button type="submit" class="button">Enviar Solicitação</button>
+    </form>
+
+    <br>
+    <a href="/cliente" class="voltar">Voltar ao Painel</a>
+
+</div>
+
+</body>
+</html>

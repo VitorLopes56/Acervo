@@ -1,0 +1,184 @@
+body.painel-funcionario {
+    background: #0f0f0f;
+    font-family: "Roboto", sans-serif;
+    color: #eee;
+    margin: 0;
+}
+
+/* HEADER */
+.topbar {
+    background: #151515;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.logo-plus {
+    color: #1a73e8;
+    font-size: 30px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    padding: 8px 14px;
+    border: none;
+    background: #1a73e8;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #1663c4;
+}
+
+.container {
+    padding: 30px;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 18px;
+    border: none;
+    background: #1a1a1a;
+    color: #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #1a73e8;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* CARDS */
+.card {
+    background: #151515;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #eee;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 10px 18px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1663c4;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    background: #333;
+    color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-small:hover {
+    background: #444;
+}
+
+/* TABLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border-bottom: 1px solid #333;
+    padding: 10px;
+}
+
+/* --- STATUS PADRONIZADOS --- */
+
+/* Empréstimos */
+.status-ativo {
+    color: #1a73e8; /* azul */
+    font-weight: bold;
+}
+
+.status-atrasado {
+    color: #e53935; /* vermelho */
+    font-weight: bold;
+}
+
+.status-devolvido {
+    color: #4caf50; /* verde */
+    font-weight: bold;
+}
+
+/* Estoque */
+.status-disponivel,
+.status-ok {
+    color: #4caf50; /* verde */
+    font-weight: bold;
+}
+
+.status-indisponivel,
+.status-late {
+    color: #e53935; /* vermelho */
+    font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: #111;
+    color: #aaa;
+    border-top: 1px solid #222;
+    margin-top: 30px;
+}

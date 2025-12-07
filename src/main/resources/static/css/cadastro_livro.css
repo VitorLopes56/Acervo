@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #000000;
+    padding: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #1C1C1C;
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #00000015;
+}
+
+.voltar {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+h1 {
+    margin: 15px 0 25px;
+}
+
+.card {
+    background: #232323;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: none;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.18);
+    
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.upload-area button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.acoes {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn-cancelar {
+    padding: 10px 20px;
+    background: #ccc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-salvar {
+    padding: 10px 20px;
+    background: #1A73E8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-salvar:hover {
+    background: #2f6ee6;
+}
+
+@media (max-width: 700px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.titulo-branco {
+    color: #ffffff;   
+}
+
+.titulo-azul {
+    color: #1A73E8;  
+    font-weight: bold;
+}
+.info{
+    color: #ffffff;
+}
+.estoque{
+    color: #ffffff;
+}
+.capa{
+    color: #ffffff;
+}
+.fundo{
+    background-color: #333333
+}

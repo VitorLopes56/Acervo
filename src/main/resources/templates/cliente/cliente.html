@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Cliente - Biblioteca</title>
+    <!-- Reutilizando o mesmo CSS do funcionário para manter a consistência -->
+    <link rel="stylesheet" href="/css/funcionarios.css">
+</head>
+
+<body class="painel-funcionario"> <!-- Usando a mesma classe base -->
+
+<header class="topbar">
+    <div class="logo-area">
+        <span class="logo-text">Acervo</span><span class="logo-plus">+</span>
+    </div>
+    <div class="user-area">
+        <span th:text="${cliente.nome}">Nome do Cliente</span>
+        <form th:action="@{/logout}" method="post">
+            <button class="logout-btn">Sair</button>
+        </form>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Abas -->
+    <nav class="tabs">
+        <button class="tab active" data-tab="meus-emprestimos">Meus Empréstimos</button>
+        <button class="tab" data-tab="buscar-livros">Buscar Livros</button>
+    </nav>
+
+    <!-- Conteúdo da Aba: Meus Empréstimos -->
+    <section class="tab-content active" id="meus-emprestimos">
+        <h2>Meus Empréstimos</h2>
+        <div class="card">
+            <h3>Histórico de Empréstimos</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Título do Livro</th>
+                    <th>Data do Empréstimo</th>
+                    <th>Data da Devolução</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="emprestimo : ${emprestimos}">
+                    <td th:text="${emprestimo.livro.titulo}">Título do Livro</td>
+                    <td th:text="${#temporals.format(emprestimo.dataEmprestimo, 'dd/MM/yyyy')}">dd/mm/aaaa</td>
+                    <td th:text="${emprestimo.dataDevolucao != null ? #temporals.format(emprestimo.dataDevolucao, 'dd/MM/yyyy') : 'Pendente'}">dd/mm/aaaa</td>
+                    <td>
+                        <span th:text="${emprestimo.status}"
+                              th:classappend="${emprestimo.status == 'ATIVO'} ? 'status-ok' : (${emprestimo.status == 'ATRASADO'} ? 'status-late' : 'status-devolvido')">
+                            Status
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Conteúdo da Aba: Buscar Livros -->
+    <section class="tab-content" id="buscar-livros">
+        <h2>Buscar Livros</h2>
+        <div class="card">
+            <h3>Encontre seu Próximo Livro</h3>
+            <input type="text" id="busca-livro-input" placeholder="Pesquisar por título ou autor...">
+        </div>
+        <div class="card">
+            <h3>Livros Disponíveis</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody id="tabela-livros-busca">
+                <!-- O conteúdo será preenchido dinamicamente pelo cliente.js -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>Biblioteca Municipal – Rua Central, 123 – Atendimento: 08h às 18h</p>
+</footer>
+
+<!-- Script para funcionalidade das abas -->
+<script>
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+</script>
+<script src="/js/cliente.js"></script>
+
+</body>
+</html>

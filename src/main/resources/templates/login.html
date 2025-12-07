@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Acervo+</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="login-page">
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <div class="logo">
+            <span class="text">Acervo</span><span class="plus">+</span>
+        </div>
+
+        <h2>Faça login na sua conta</h2>
+
+        <form id="loginForm" th:action="@{/login}" method="post">
+            <!-- Div para exibir mensagens de erro ou sucesso -->
+            <div id="message" class="message-area"></div>
+
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Usuário" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Senha" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <p class="footer-text">© Teste do rodape no Acervo+</p>
+    </div>
+</div>
+<script src="/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* ====== Fundo escuro minimalista ====== */
+body.login-page {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+
+    background: #0f0f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    color: #e0e0e0;
+}
+
+/* Wrapper */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ====== Card estilo Dark Premium ====== */
+.login-card {
+    width: 360px;
+    padding: 32px 30px;
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 45px rgba(0,0,0,0.55);
+    text-align: center;
+}
+
+/* ====== Logo Acervo+ ====== */
+.logo {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 26px;
+}
+
+.logo .text {
+    color: #ffffff;
+}
+
+.logo .plus {
+    color: #1a73e8;
+}
+
+/* ====== Título ====== */
+.login-card h2 {
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: #e8e8e8;
+}
+
+/* ====== Inputs ====== */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    box-sizing: border-box;   /* <<< Isto impede estourar o card */
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 6px;
+
+    background: #1c1c1c;
+    border: 1px solid #333;
+    color: #e0e0e0;
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.input-group input:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.45);
+}
+
+/* ====== Botão ====== */
+.btn-login {
+    width: 100%;
+    padding: 13px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+
+    background-color: #1a73e8;
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(26, 115, 232, 0.35);
+}
+
+.btn-login:hover {
+    background-color: #1663c4;
+    box-shadow: 0 5px 18px rgba(26, 115, 232, 0.45);
+    transform: translateY(-2px);
+}
+
+/* ====== Rodapé ====== */
+.footer-text {
+    margin-top: 26px;
+    font-size: 13px;
+    color: #b5b5b5;
+}

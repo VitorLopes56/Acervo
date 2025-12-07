@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Livros</title>
+    <link rel="stylesheet" href="css/listagem_livro.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <div class="header">
+                <h1 class="titulo-pagina">
+                    <span class="texto-branco">Listagem de</span>
+                    <span class="texto-azul">Livros</span>
+                </h1>
+
+                <button class="btn-add">+ Adicionar Livro</button>
+            </div>
+
+            <div class="search-area">
+                <input type="text" class="input-busca" placeholder="Buscar por título, autor, categoria...">
+                <button class="btn-buscar">Buscar</button>
+            </div>
+
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>Ano</th>
+                        <th>Categoria</th>
+                        <th>ISBN</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody class="a">
+                    <tr>
+                        <td>Dom Casmurro</td>
+                        <td>Machado de Assis</td>
+                        <td>Globo</td>
+                        <td>1899</td>
+                        <td>Romance</td>
+                        <td>978-8525017611</td>
+                        <td>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-excluir">Excluir</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>O Hobbit</td>
+                        <td>J. R. R. Tolkien</td>
+                        <td>HarperCollins</td>
+                        <td>1937</td>
+                        <td>Fantasia</td>
+                        <td>978-6555118148</td>
+                        <td>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-excluir">Excluir</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* ====== Aba / Tabs ====== */
+.tabs {
+    margin-top: 20px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.tab-buttons button:hover {
+    background: #ccc;
+}
+
+.tab-buttons .active {
+    background: #4CAF50;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    margin-top: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ====== Tabela ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table th {
+    background: #eee;
+}
+
+/* ====== Botão ====== */
+.button {
+    padding: 8px 12px;
+    background: #2196F3;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #0b7dda;
+}
+
+/* ====== Status ====== */
+.status-ok {
+    color: green;
+    font-weight: bold;
+}
+
+.status-late {
+    color: red;
+    font-weight: bold;
+}
+
+.status-refused {
+    color: orange;
+    font-weight: bold;
+}
+
+.disponivel {
+    color: green;
+}
+
+.indisponivel {
+    color: red;
+}
+
+/* ===== Campo de busca ===== */
+.search input {
+    padding: 8px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
